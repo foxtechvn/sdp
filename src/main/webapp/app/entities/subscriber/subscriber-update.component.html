@@ -1,0 +1,155 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-subscriber-heading" jhiTranslate="sdpApp.subscriber.home.createOrEditLabel">Create or edit a Subscriber</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!subscriber.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="subscriber.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.subscriber.msisdn" for="field_msisdn">Msisdn</label>
+                    <input type="text" class="form-control" name="msisdn" id="field_msisdn"
+                        [(ngModel)]="subscriber.msisdn" required maxlength="40"/>
+                    <div [hidden]="!(editForm.controls.msisdn?.dirty && editForm.controls.msisdn?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.msisdn?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.msisdn?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 40 }">
+                        This field cannot be longer than 40 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.subscriber.productId" for="field_productId">Product Id</label>
+                    <input type="text" class="form-control" name="productId" id="field_productId"
+                        [(ngModel)]="subscriber.productId" required/>
+                    <div [hidden]="!(editForm.controls.productId?.dirty && editForm.controls.productId?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.productId?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.subscriber.trialCnt" for="field_trialCnt" [ngbTooltip]="'sdpApp.subscriber.help.trialCnt' | translate">Trial Cnt</label>
+                    <input type="number" class="form-control" name="trialCnt" id="field_trialCnt"
+                        [(ngModel)]="subscriber.trialCnt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.subscriber.successCnt" for="field_successCnt">Success Cnt</label>
+                    <input type="number" class="form-control" name="successCnt" id="field_successCnt"
+                        [(ngModel)]="subscriber.successCnt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.subscriber.state" for="field_state">State</label>
+                    <input type="number" class="form-control" name="state" id="field_state"
+                        [(ngModel)]="subscriber.state" required min="-9" jhiMin="-9" max="9" jhiMax="9"/>
+                    <div [hidden]="!(editForm.controls.state?.dirty && editForm.controls.state?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.state?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.state?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: -9 }">
+                            This field should be at least -9.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.state?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 9 }">
+                            This field cannot be more than 9.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.state?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.subscriber.joinAt" for="field_joinAt">Join At</label>
+                    <div class="d-flex">
+                        <input id="field_joinAt" type="datetime-local" class="form-control" name="joinAt" [(ngModel)]="joinAt"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.subscriber.leftAt" for="field_leftAt">Left At</label>
+                    <div class="d-flex">
+                        <input id="field_leftAt" type="datetime-local" class="form-control" name="leftAt" [(ngModel)]="leftAt"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.subscriber.expiryTime" for="field_expiryTime">Expiry Time</label>
+                    <div class="d-flex">
+                        <input id="field_expiryTime" type="datetime-local" class="form-control" name="expiryTime" [(ngModel)]="expiryTime"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.subscriber.chargeLastTime" for="field_chargeLastTime">Charge Last Time</label>
+                    <div class="d-flex">
+                        <input id="field_chargeLastTime" type="datetime-local" class="form-control" name="chargeLastTime" [(ngModel)]="chargeLastTime"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.subscriber.chargeNextTime" for="field_chargeNextTime">Charge Next Time</label>
+                    <div class="d-flex">
+                        <input id="field_chargeNextTime" type="datetime-local" class="form-control" name="chargeNextTime" [(ngModel)]="chargeNextTime"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.subscriber.chargeLastSuccess" for="field_chargeLastSuccess">Charge Last Success</label>
+                    <div class="d-flex">
+                        <input id="field_chargeLastSuccess" type="datetime-local" class="form-control" name="chargeLastSuccess" [(ngModel)]="chargeLastSuccess"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.subscriber.notify" for="field_notify">Notify</label>
+                    <input type="number" class="form-control" name="notify" id="field_notify"
+                        [(ngModel)]="subscriber.notify" required min="-9" jhiMin="-9" max="9" jhiMax="9"/>
+                    <div [hidden]="!(editForm.controls.notify?.dirty && editForm.controls.notify?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.notify?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.notify?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: -9 }">
+                            This field should be at least -9.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.notify?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 9 }">
+                            This field cannot be more than 9.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.notify?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.subscriber.notifyLastTime" for="field_notifyLastTime">Notify Last Time</label>
+                    <div class="d-flex">
+                        <input id="field_notifyLastTime" type="datetime-local" class="form-control" name="notifyLastTime" [(ngModel)]="notifyLastTime"
+                        />
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

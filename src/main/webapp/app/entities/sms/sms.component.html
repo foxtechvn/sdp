@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sdpApp.sms.home.title">Sms</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sms" [routerLink]="['/sms/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sdpApp.sms.home.createLabel">
+            Create new Sms
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="sms">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="source"><span jhiTranslate="sdpApp.sms.source">Source</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="destination"><span jhiTranslate="sdpApp.sms.destination">Destination</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="text"><span jhiTranslate="sdpApp.sms.text">Text</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="submitAt"><span jhiTranslate="sdpApp.sms.submitAt">Submit At</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="expiredAt"><span jhiTranslate="sdpApp.sms.expiredAt">Expired At</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="deliveredAt"><span jhiTranslate="sdpApp.sms.deliveredAt">Delivered At</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="state"><span jhiTranslate="sdpApp.sms.state">State</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="productId"><span jhiTranslate="sdpApp.sms.productId">Product Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contentId"><span jhiTranslate="sdpApp.sms.contentId">Content Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tnxId"><span jhiTranslate="sdpApp.sms.tnxId">Tnx Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let sms of sms ;trackBy: trackId">
+                <td><a [routerLink]="['/sms', sms.id, 'view' ]">{{sms.id}}</a></td>
+                <td>{{sms.source}}</td>
+                <td>{{sms.destination}}</td>
+                <td>{{sms.text}}</td>
+                <td>{{sms.submitAt | date:'medium'}}</td>
+                <td>{{sms.expiredAt | date:'medium'}}</td>
+                <td>{{sms.deliveredAt | date:'medium'}}</td>
+                <td>{{sms.state}}</td>
+                <td>{{sms.productId}}</td>
+                <td>{{sms.contentId}}</td>
+                <td>{{sms.tnxId}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/sms', sms.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/sms', sms.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sms/'+ sms.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="sms && sms.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

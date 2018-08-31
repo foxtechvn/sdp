@@ -1,0 +1,43 @@
+{
+    "name": "SmsContent",
+    "fields": [
+        {
+            "fieldName": "startAt",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "expiredAt",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "message",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "javadoc": "Following complex attributes are here\ntags List<String>\ncfg Map<String, Object>",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max",
+                "required"
+            ],
+            "fieldValidateRulesMin": -9,
+            "fieldValidateRulesMax": 9
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180831181452",
+    "entityTableName": "sms_content",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

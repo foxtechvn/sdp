@@ -1,0 +1,40 @@
+
+{
+    "sdpApp": {
+        "subscriber" : {
+            "home": {
+                "title": "Subscribers",
+                "createLabel": "Thêm mới một Subscriber",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Subscriber"
+            },
+            "created": "Một Subscriber mới được tạo với định danh {{ param }}",
+            "updated": "Một Subscriber cập nhật với định danh {{ param }}",
+            "deleted": "Một Subscriber đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Subscriber {{ id }}?"
+            },
+            "detail": {
+                "title": "Subscriber"
+            },
+            "msisdn": "Msisdn",
+            "productId": "Product Id",
+            "trialCnt": "Trial Cnt",
+            "successCnt": "Success Cnt",
+            "state": "State",
+            "joinAt": "Join At",
+            "leftAt": "Left At",
+            "expiryTime": "Expiry Time",
+            "chargeLastTime": "Charge Last Time",
+            "chargeNextTime": "Charge Next Time",
+            "chargeLastSuccess": "Charge Last Success",
+            "notify": "Notify",
+            "notifyLastTime": "Notify Last Time",
+            "help": {
+                "trialCnt": "Following complex attributes are here
+tags List&lt;String&gt;
+provisioning Map&lt;String, Object&gt;
+cfg Map&lt;String, Object&gt;"
+            }
+        }
+    }
+}

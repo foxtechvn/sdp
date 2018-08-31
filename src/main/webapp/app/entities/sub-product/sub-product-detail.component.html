@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subProduct">
+            <h2><span jhiTranslate="sdpApp.subProduct.detail.title">Sub Product</span> {{subProduct.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sdpApp.subProduct.code" [ngbTooltip]="'sdpApp.subProduct.help.code' | translate">Code</span></dt>
+                <dd>
+                    <span>{{subProduct.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.subProduct.description" [ngbTooltip]="'sdpApp.subProduct.help.description' | translate">Description</span></dt>
+                <dd>
+                    <span>{{subProduct.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.subProduct.misc" [ngbTooltip]="'sdpApp.subProduct.help.misc' | translate">Misc</span></dt>
+                <dd>
+                    <span>{{subProduct.misc}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sub-product', subProduct.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

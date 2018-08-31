@@ -318,6 +318,52 @@
             <artifactId>spring-security-messaging</artifactId>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
+
+<!-- Serialize XML -->
+<dependency>
+    <groupId>com.fasterxml.jackson.dataformat</groupId>
+    <artifactId>jackson-dataformat-xml</artifactId>
+</dependency>
+<!-- Rate Limit -->
+<dependency>
+    <groupId>com.github.vladimir-bukhtoyarov</groupId>
+    <artifactId>bucket4j-core</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.github.vladimir-bukhtoyarov</groupId>
+    <artifactId>bucket4j-jcache</artifactId>
+</dependency>
+<!-- File Conversion and Text handling -->
+<dependency>
+  <groupId>org.apache.poi</groupId>
+  <artifactId>poi-ooxml</artifactId>
+  <version>3.17</version>
+</dependency>
+<dependency>
+  <groupId>com.ibm.icu</groupId>
+  <artifactId>icu4j</artifactId>
+  <version>62.1</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-text</artifactId>
+    <version>1.4</version>
+</dependency>
+<!-- Search and Filtering -->
+<dependency>
+  <groupId>com.querydsl</groupId>
+  <artifactId>querydsl-apt</artifactId>
+</dependency>
+<dependency>
+  <groupId>com.querydsl</groupId>
+  <artifactId>querydsl-mongodb</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.mongodb.morphia</groupId>
+    <artifactId>morphia</artifactId>
+    <version>1.3.2</version>
+</dependency>
+
     </dependencies>
 
     <build>
@@ -574,6 +620,24 @@
                 </executions>
             </plugin>
             <!-- jhipster-needle-maven-add-plugin -->
+
+<!-- QueryDSL for MongoDB -->
+<plugin>
+  <groupId>com.mysema.maven</groupId>
+  <artifactId>apt-maven-plugin</artifactId>
+  <version>1.1.3</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>process</goal>
+      </goals>
+      <configuration>
+        <outputDirectory>target/generated-sources/java</outputDirectory>
+        <processor>com.querydsl.apt.morphia.MorphiaAnnotationProcessor</processor>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
         </plugins>
         <pluginManagement>
             <plugins>

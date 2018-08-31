@@ -1,0 +1,40 @@
+
+{
+    "sdpApp": {
+        "sms" : {
+            "home": {
+                "title": "Sms",
+                "createLabel": "Thêm mới một Sms",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Sms"
+            },
+            "created": "Một Sms mới được tạo với định danh {{ param }}",
+            "updated": "Một Sms cập nhật với định danh {{ param }}",
+            "deleted": "Một Sms đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Sms {{ id }}?"
+            },
+            "detail": {
+                "title": "Sms"
+            },
+            "source": "Source",
+            "destination": "Destination",
+            "text": "Text",
+            "submitAt": "Submit At",
+            "expiredAt": "Expired At",
+            "deliveredAt": "Delivered At",
+            "state": "State",
+            "productId": "Product Id",
+            "contentId": "Content Id",
+            "tnxId": "Tnx Id",
+            "help": {
+                "tnxId": "Following complex attributes are here
+tags List&lt;String&gt;
+cfg Map&lt;String, Object&gt;
+submitRequest Object
+submitResponse Object
+deliveryRequest Object
+deliveryResponse Object"
+            }
+        }
+    }
+}

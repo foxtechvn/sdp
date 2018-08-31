@@ -1,0 +1,35 @@
+
+{
+    "sdpApp": {
+        "cdr" : {
+            "home": {
+                "title": "Cdrs",
+                "createLabel": "Thêm mới một Cdr",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Cdr"
+            },
+            "created": "Một Cdr mới được tạo với định danh {{ param }}",
+            "updated": "Một Cdr cập nhật với định danh {{ param }}",
+            "deleted": "Một Cdr đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Cdr {{ id }}?"
+            },
+            "detail": {
+                "title": "Cdr"
+            },
+            "msisdn": "Msisdn",
+            "state": "State",
+            "amount": "Amount",
+            "requestAt": "Request At",
+            "responseAt": "Response At",
+            "productId": "Product Id",
+            "contentId": "Content Id",
+            "help": {
+                "productId": "Following complex attributes are here
+tags List&lt;String&gt;
+cfg Map&lt;String, Object&gt;
+chargeRequest Object
+chargeResponse Object"
+            }
+        }
+    }
+}

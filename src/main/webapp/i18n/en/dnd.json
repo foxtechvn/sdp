@@ -1,0 +1,23 @@
+
+{
+    "sdpApp": {
+        "dnd" : {
+            "home": {
+                "title": "Dnds",
+                "createLabel": "Create a new Dnd",
+                "createOrEditLabel": "Create or edit a Dnd"
+            },
+            "created": "A new Dnd is created with identifier {{ param }}",
+            "updated": "A Dnd is updated with identifier {{ param }}",
+            "deleted": "A Dnd is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Dnd {{ id }}?"
+            },
+            "detail": {
+                "title": "Dnd"
+            },
+            "joinAt": "Join At",
+            "joinChannel": "Join Channel"
+        }
+    }
+}

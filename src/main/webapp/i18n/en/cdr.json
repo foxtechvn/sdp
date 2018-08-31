@@ -1,0 +1,35 @@
+
+{
+    "sdpApp": {
+        "cdr" : {
+            "home": {
+                "title": "Cdrs",
+                "createLabel": "Create a new Cdr",
+                "createOrEditLabel": "Create or edit a Cdr"
+            },
+            "created": "A new Cdr is created with identifier {{ param }}",
+            "updated": "A Cdr is updated with identifier {{ param }}",
+            "deleted": "A Cdr is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Cdr {{ id }}?"
+            },
+            "detail": {
+                "title": "Cdr"
+            },
+            "msisdn": "Msisdn",
+            "state": "State",
+            "amount": "Amount",
+            "requestAt": "Request At",
+            "responseAt": "Response At",
+            "productId": "Product Id",
+            "contentId": "Content Id",
+            "help": {
+                "productId": "Following complex attributes are here
+tags List&lt;String&gt;
+cfg Map&lt;String, Object&gt;
+chargeRequest Object
+chargeResponse Object"
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-sms-content-heading" jhiTranslate="sdpApp.smsContent.home.createOrEditLabel">Create or edit a Sms Content</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!smsContent.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="smsContent.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.smsContent.startAt" for="field_startAt">Start At</label>
+                    <div class="d-flex">
+                        <input id="field_startAt" type="datetime-local" class="form-control" name="startAt" [(ngModel)]="startAt"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.smsContent.expiredAt" for="field_expiredAt">Expired At</label>
+                    <div class="d-flex">
+                        <input id="field_expiredAt" type="datetime-local" class="form-control" name="expiredAt" [(ngModel)]="expiredAt"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.smsContent.message" for="field_message">Message</label>
+                    <input type="text" class="form-control" name="message" id="field_message"
+                        [(ngModel)]="smsContent.message" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.smsContent.productId" for="field_productId">Product Id</label>
+                    <input type="text" class="form-control" name="productId" id="field_productId"
+                        [(ngModel)]="smsContent.productId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.smsContent.state" for="field_state" [ngbTooltip]="'sdpApp.smsContent.help.state' | translate">State</label>
+                    <input type="number" class="form-control" name="state" id="field_state"
+                        [(ngModel)]="smsContent.state" required min="-9" jhiMin="-9" max="9" jhiMax="9"/>
+                    <div [hidden]="!(editForm.controls.state?.dirty && editForm.controls.state?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.state?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.state?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: -9 }">
+                            This field should be at least -9.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.state?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 9 }">
+                            This field cannot be more than 9.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.state?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+
+{
+    "sdpApp": {
+        "dnd" : {
+            "home": {
+                "title": "Dnds",
+                "createLabel": "Thêm mới một Dnd",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Dnd"
+            },
+            "created": "Một Dnd mới được tạo với định danh {{ param }}",
+            "updated": "Một Dnd cập nhật với định danh {{ param }}",
+            "deleted": "Một Dnd đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Dnd {{ id }}?"
+            },
+            "detail": {
+                "title": "Dnd"
+            },
+            "joinAt": "Join At",
+            "joinChannel": "Join Channel"
+        }
+    }
+}

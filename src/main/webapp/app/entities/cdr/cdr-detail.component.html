@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cdr">
+            <h2><span jhiTranslate="sdpApp.cdr.detail.title">Cdr</span> {{cdr.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sdpApp.cdr.msisdn">Msisdn</span></dt>
+                <dd>
+                    <span>{{cdr.msisdn}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.cdr.state">State</span></dt>
+                <dd>
+                    <span>{{cdr.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.cdr.amount">Amount</span></dt>
+                <dd>
+                    <span>{{cdr.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.cdr.requestAt">Request At</span></dt>
+                <dd>
+                    <span>{{cdr.requestAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.cdr.responseAt">Response At</span></dt>
+                <dd>
+                    <span>{{cdr.responseAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.cdr.productId" [ngbTooltip]="'sdpApp.cdr.help.productId' | translate">Product Id</span></dt>
+                <dd>
+                    <span>{{cdr.productId}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.cdr.contentId">Content Id</span></dt>
+                <dd>
+                    <span>{{cdr.contentId}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cdr', cdr.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

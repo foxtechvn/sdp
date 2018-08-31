@@ -1,0 +1,31 @@
+
+{
+    "sdpApp": {
+        "smsContent" : {
+            "home": {
+                "title": "Sms Contents",
+                "createLabel": "Create a new Sms Content",
+                "createOrEditLabel": "Create or edit a Sms Content"
+            },
+            "created": "A new Sms Content is created with identifier {{ param }}",
+            "updated": "A Sms Content is updated with identifier {{ param }}",
+            "deleted": "A Sms Content is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sms Content {{ id }}?"
+            },
+            "detail": {
+                "title": "Sms Content"
+            },
+            "startAt": "Start At",
+            "expiredAt": "Expired At",
+            "message": "Message",
+            "productId": "Product Id",
+            "state": "State",
+            "help": {
+                "state": "Following complex attributes are here
+tags List&lt;String&gt;
+cfg Map&lt;String, Object&gt;"
+            }
+        }
+    }
+}

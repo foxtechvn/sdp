@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sms">
+            <h2><span jhiTranslate="sdpApp.sms.detail.title">Sms</span> {{sms.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sdpApp.sms.source">Source</span></dt>
+                <dd>
+                    <span>{{sms.source}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.sms.destination">Destination</span></dt>
+                <dd>
+                    <span>{{sms.destination}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.sms.text">Text</span></dt>
+                <dd>
+                    <span>{{sms.text}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.sms.submitAt">Submit At</span></dt>
+                <dd>
+                    <span>{{sms.submitAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.sms.expiredAt">Expired At</span></dt>
+                <dd>
+                    <span>{{sms.expiredAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.sms.deliveredAt">Delivered At</span></dt>
+                <dd>
+                    <span>{{sms.deliveredAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.sms.state">State</span></dt>
+                <dd>
+                    <span>{{sms.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.sms.productId">Product Id</span></dt>
+                <dd>
+                    <span>{{sms.productId}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.sms.contentId">Content Id</span></dt>
+                <dd>
+                    <span>{{sms.contentId}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.sms.tnxId" [ngbTooltip]="'sdpApp.sms.help.tnxId' | translate">Tnx Id</span></dt>
+                <dd>
+                    <span>{{sms.tnxId}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sms', sms.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

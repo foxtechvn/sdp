@@ -1,0 +1,35 @@
+
+{
+    "sdpApp": {
+        "subProduct" : {
+            "home": {
+                "title": "Sub Products",
+                "createLabel": "Create a new Sub Product",
+                "createOrEditLabel": "Create or edit a Sub Product"
+            },
+            "created": "A new Sub Product is created with identifier {{ param }}",
+            "updated": "A Sub Product is updated with identifier {{ param }}",
+            "deleted": "A Sub Product is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sub Product {{ id }}?"
+            },
+            "detail": {
+                "title": "Sub Product"
+            },
+            "code": "Code",
+            "description": "Description",
+            "misc": "Misc",
+            "help": {
+                "code": "The name of the product",
+                "description": "Description",
+                "misc": "Following complex attributes are here
+chargingProfiles Map&lt;String, Object&gt;: Charging Profile
+joinPattern List&lt;String&gt;
+leftPattern List&lt;String&gt;
+tags List&lt;String&gt;
+broadcast Map&lt;String, Object&gt;: Broadcast Information
+msg Map&lt;String, String&gt;: Message types: contents"
+            }
+        }
+    }
+}

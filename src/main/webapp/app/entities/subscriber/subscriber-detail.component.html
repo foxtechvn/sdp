@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subscriber">
+            <h2><span jhiTranslate="sdpApp.subscriber.detail.title">Subscriber</span> {{subscriber.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sdpApp.subscriber.msisdn">Msisdn</span></dt>
+                <dd>
+                    <span>{{subscriber.msisdn}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.subscriber.productId">Product Id</span></dt>
+                <dd>
+                    <span>{{subscriber.productId}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.subscriber.trialCnt" [ngbTooltip]="'sdpApp.subscriber.help.trialCnt' | translate">Trial Cnt</span></dt>
+                <dd>
+                    <span>{{subscriber.trialCnt}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.subscriber.successCnt">Success Cnt</span></dt>
+                <dd>
+                    <span>{{subscriber.successCnt}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.subscriber.state">State</span></dt>
+                <dd>
+                    <span>{{subscriber.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.subscriber.joinAt">Join At</span></dt>
+                <dd>
+                    <span>{{subscriber.joinAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.subscriber.leftAt">Left At</span></dt>
+                <dd>
+                    <span>{{subscriber.leftAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.subscriber.expiryTime">Expiry Time</span></dt>
+                <dd>
+                    <span>{{subscriber.expiryTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.subscriber.chargeLastTime">Charge Last Time</span></dt>
+                <dd>
+                    <span>{{subscriber.chargeLastTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.subscriber.chargeNextTime">Charge Next Time</span></dt>
+                <dd>
+                    <span>{{subscriber.chargeNextTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.subscriber.chargeLastSuccess">Charge Last Success</span></dt>
+                <dd>
+                    <span>{{subscriber.chargeLastSuccess}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.subscriber.notify">Notify</span></dt>
+                <dd>
+                    <span>{{subscriber.notify}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.subscriber.notifyLastTime">Notify Last Time</span></dt>
+                <dd>
+                    <span>{{subscriber.notifyLastTime}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/subscriber', subscriber.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

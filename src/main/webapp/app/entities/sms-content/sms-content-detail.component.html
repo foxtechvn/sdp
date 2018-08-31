@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="smsContent">
+            <h2><span jhiTranslate="sdpApp.smsContent.detail.title">Sms Content</span> {{smsContent.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sdpApp.smsContent.startAt">Start At</span></dt>
+                <dd>
+                    <span>{{smsContent.startAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.smsContent.expiredAt">Expired At</span></dt>
+                <dd>
+                    <span>{{smsContent.expiredAt}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.smsContent.message">Message</span></dt>
+                <dd>
+                    <span>{{smsContent.message}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.smsContent.productId">Product Id</span></dt>
+                <dd>
+                    <span>{{smsContent.productId}}</span>
+                </dd>
+                <dt><span jhiTranslate="sdpApp.smsContent.state" [ngbTooltip]="'sdpApp.smsContent.help.state' | translate">State</span></dt>
+                <dd>
+                    <span>{{smsContent.state}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sms-content', smsContent.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

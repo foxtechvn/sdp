@@ -1,0 +1,110 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-sms-heading" jhiTranslate="sdpApp.sms.home.createOrEditLabel">Create or edit a Sms</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!sms.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="sms.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.sms.source" for="field_source">Source</label>
+                    <input type="text" class="form-control" name="source" id="field_source"
+                        [(ngModel)]="sms.source" maxlength="40"/>
+                    <div [hidden]="!(editForm.controls.source?.dirty && editForm.controls.source?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.source?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 40 }">
+                        This field cannot be longer than 40 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.sms.destination" for="field_destination">Destination</label>
+                    <input type="text" class="form-control" name="destination" id="field_destination"
+                        [(ngModel)]="sms.destination" maxlength="40"/>
+                    <div [hidden]="!(editForm.controls.destination?.dirty && editForm.controls.destination?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.destination?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 40 }">
+                        This field cannot be longer than 40 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.sms.text" for="field_text">Text</label>
+                    <input type="text" class="form-control" name="text" id="field_text"
+                        [(ngModel)]="sms.text" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.sms.submitAt" for="field_submitAt">Submit At</label>
+                    <div class="d-flex">
+                        <input id="field_submitAt" type="datetime-local" class="form-control" name="submitAt" [(ngModel)]="submitAt"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.sms.expiredAt" for="field_expiredAt">Expired At</label>
+                    <div class="d-flex">
+                        <input id="field_expiredAt" type="datetime-local" class="form-control" name="expiredAt" [(ngModel)]="expiredAt"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.sms.deliveredAt" for="field_deliveredAt">Delivered At</label>
+                    <div class="d-flex">
+                        <input id="field_deliveredAt" type="datetime-local" class="form-control" name="deliveredAt" [(ngModel)]="deliveredAt"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.sms.state" for="field_state">State</label>
+                    <input type="number" class="form-control" name="state" id="field_state"
+                        [(ngModel)]="sms.state" required min="-9" jhiMin="-9" max="9" jhiMax="9"/>
+                    <div [hidden]="!(editForm.controls.state?.dirty && editForm.controls.state?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.state?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.state?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: -9 }">
+                            This field should be at least -9.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.state?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 9 }">
+                            This field cannot be more than 9.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.state?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.sms.productId" for="field_productId">Product Id</label>
+                    <input type="text" class="form-control" name="productId" id="field_productId"
+                        [(ngModel)]="sms.productId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.sms.contentId" for="field_contentId">Content Id</label>
+                    <input type="text" class="form-control" name="contentId" id="field_contentId"
+                        [(ngModel)]="sms.contentId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sdpApp.sms.tnxId" for="field_tnxId" [ngbTooltip]="'sdpApp.sms.help.tnxId' | translate">Tnx Id</label>
+                    <input type="text" class="form-control" name="tnxId" id="field_tnxId"
+                        [(ngModel)]="sms.tnxId" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

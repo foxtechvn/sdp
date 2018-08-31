@@ -1,0 +1,71 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sdpApp.smsContent.home.title">Sms Contents</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sms-content" [routerLink]="['/sms-content/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sdpApp.smsContent.home.createLabel">
+            Create new Sms Content
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="smsContents">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="startAt"><span jhiTranslate="sdpApp.smsContent.startAt">Start At</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="expiredAt"><span jhiTranslate="sdpApp.smsContent.expiredAt">Expired At</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="message"><span jhiTranslate="sdpApp.smsContent.message">Message</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="productId"><span jhiTranslate="sdpApp.smsContent.productId">Product Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="state"><span jhiTranslate="sdpApp.smsContent.state">State</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let smsContent of smsContents ;trackBy: trackId">
+                <td><a [routerLink]="['/sms-content', smsContent.id, 'view' ]">{{smsContent.id}}</a></td>
+                <td>{{smsContent.startAt | date:'medium'}}</td>
+                <td>{{smsContent.expiredAt | date:'medium'}}</td>
+                <td>{{smsContent.message}}</td>
+                <td>{{smsContent.productId}}</td>
+                <td>{{smsContent.state}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/sms-content', smsContent.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/sms-content', smsContent.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sms-content/'+ smsContent.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="smsContents && smsContents.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

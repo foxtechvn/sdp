@@ -1,0 +1,35 @@
+
+{
+    "sdpApp": {
+        "subProduct" : {
+            "home": {
+                "title": "Sub Products",
+                "createLabel": "Thêm mới một Sub Product",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Sub Product"
+            },
+            "created": "Một Sub Product mới được tạo với định danh {{ param }}",
+            "updated": "Một Sub Product cập nhật với định danh {{ param }}",
+            "deleted": "Một Sub Product đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Sub Product {{ id }}?"
+            },
+            "detail": {
+                "title": "Sub Product"
+            },
+            "code": "Code",
+            "description": "Description",
+            "misc": "Misc",
+            "help": {
+                "code": "The name of the product",
+                "description": "Description",
+                "misc": "Following complex attributes are here
+chargingProfiles Map&lt;String, Object&gt;: Charging Profile
+joinPattern List&lt;String&gt;
+leftPattern List&lt;String&gt;
+tags List&lt;String&gt;
+broadcast Map&lt;String, Object&gt;: Broadcast Information
+msg Map&lt;String, String&gt;: Message types: contents"
+            }
+        }
+    }
+}
